@@ -1,35 +1,19 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
-// import { usersReducer } from "./slices/UsersSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import { usersReducer } from "./slices/UsersSlice";
+// import { productsReducer } from "./slices/productsSlice"
 // import { setupListeners } from "@reduxjs/toolkit/query";
 // import { albumsApi } from "./apis/albumsApi";
 // import { photosApi } from "./apis/photosApi";
 
 
-
-const productsSlice = createSlice({
-    name: 'product',
-    initiastate:[],
-    reducers: {
-        addProduct(state, action){
-            state.push(action.payload);
-            //
-        },
-        removeProduct(state, action){
-            //
-        }
-    }
-
-
-});
-
-const store = configureStore({
+export const store = configureStore({
       reducer:{
-        products: productsSlice.reducer
+        // products: productsReducer,
+        users: usersReducer
       }  
 });
 
-export { store } 
-export const { addProduct} = productsSlice.actions
+
 // const startingState = store.getState();
 // console.log(startingState);
 
