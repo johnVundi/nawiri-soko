@@ -1,5 +1,18 @@
 {
-    "users": [],
-    "categories": [],
-    "product": []
+    "users": [
+        {
+            "id":1,
+            "name": "Myra"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "title": "Fruits",
+            "userId": 1
+        }
+    ],
+    "product": [
+
+    ]
 }

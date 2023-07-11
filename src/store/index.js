@@ -1,18 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { usersReducer } from "./slices/UsersSlice";
 // import { productsReducer } from "./slices/productsSlice"
-// import { setupListeners } from "@reduxjs/toolkit/query";
-// import { albumsApi } from "./apis/albumsApi";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { categoriesApi } from "./apis/categoryApi";
 // import { photosApi } from "./apis/photosApi";
 
 
 export const store = configureStore({
       reducer:{
-        // products: productsReducer,
-        users: usersReducer
-      }  
+        users: usersReducer,
+        [categoriesApi.reducerPath]: categoriesApi.reducer
+      }, 
+      middleware: (getDefaultMiddleware) => {
+        return getDefaultMiddleware()
+        .concat(categoriesApi.middleware);
+      }, 
 });
 
+setupListeners(store.dispatch);
+export {useFetchCategoriesQuery} from './apis/categoryApi'
 
 // const startingState = store.getState();
 // console.log(startingState);
