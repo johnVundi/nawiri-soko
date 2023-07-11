@@ -2,9 +2,10 @@ import React from 'react'
 import { useFetchCategoriesQuery } from '../store'
 
 function Categories({categories}) {
-  const {data, error, isLoading } = useFetchCategoriesQuery()
+  const results = useFetchCategoriesQuery(categories)
   
-  console.log(data, error, isLoading)
+  console.log(results)
+  // console.log(data, error, isLoading)
   return (
     <div>Categories{categories.title}</div>
   )
